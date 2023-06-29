@@ -1,0 +1,53 @@
+Network: AlexNet
+Initialization: Every Conv2d and Linear layer, Xavier_uniform
+Loss function: CrossEntropy Loss
+Optimizer: SGD
+Data: FashionMNIST, Raw
+device: gpu
+lr_policy: None
+===========================================================================================================================================================
+Epoch Adjustment
+Epoch: 10; Batch Size: 128; lr: 0.01; training loss: 0.3279070376650865; training acc: 0.8803666666666666; test loss: 0.05435571659094235; test acc: 0.8846;
+Epoch: 20; Batch Size: 128; lr: 0.01; training loss: 0.2493673072440792; training acc: 0.9083666666666667; test loss: 0.04663809693889069; test acc: 0.8998;
+Epoch: 30; Batch Size: 128; lr: 0.01; training loss: 0.19501006152075745; training acc: 0.9273166666666667; test loss: 0.042801272989844465; test acc: 0.9106;
+** Epoch: 35; Batch Size: 128; lr: 0.01; training loss: 0.17505864965826717; training acc: 0.9348666666666666; test loss: 0.040641670176850705; test acc: 0.914;
+Epoch: 40; Batch Size: 128; lr: 0.01; training loss: 0.15583212128770885; training acc: 0.9421; test loss: 0.04250970852972348; test acc: 0.9157;
+===========================================================================================================================================================
+Batch Size Adjustment
+** Group: 7; Epoch: 35; Batch Size: 64; lr: 0.01; training loss: 0.10382360005493103; training acc: 0.9608; test loss: 0.042847435458747946; test acc: 0.9233;
+Epoch: 35; Batch Size: 256; lr: 0.01; training loss: 0.2473178968150565; training acc: 0.9080333333333334; test loss: 0.046229864434993016; test acc: 0.9018;(surpass 10 * class too much)
+Epoch: 35; Batch Size: 32; lr: 0.01; training loss: 0.0492245428611796; training acc: 0.9813833333333334; test loss: 0.054924825817781193; test acc: 0.9229;
+Epoch: 35; Batch Size: 16; lr: 0.01; training loss: 0.02156698917081754; training acc: 0.9921333333333333; test loss: 0.06833279111242607; test acc: 0.9249;
+===========================================================================================================================================================
+Lr Adjustment
+Control Group: Group: 7; Epoch: 35; Batch Size: 64; lr: 0.01; training loss: 0.10382360005493103; training acc: 0.9608; test loss: 0.042847435458747946; test acc: 0.9233;
+** Group: 11; Epoch: 35; Batch Size: 32; lr: 0.1; training loss: 0.05808492022995827; training acc: 0.9810166666666666; test loss: 0.059977304670059434; test acc: 0.9193;(High acc)
+Group: 12; Epoch: 35; Batch Size: 32; lr: 0.5; Not convergent.
+Group: 13; Epoch: 35; Batch Size: 32; lr: 0.001; training loss: 0.26139271037181216; training acc: 0.9047833333333334; test loss: 0.04668371372818947; test acc: 0.8992;
+** Group: 14; Epoch: 45; Batch Size: 32; lr: 0.001; training loss: 0.22768612671693167; training acc: 0.9158833333333334; test loss: 0.04298197160164515; test acc: 0.9078; （Low overfitting）
+===========================================================================================================================================================
+Lr Policy
+scheduler = lr_scheduler.StepLR(optimizer, step_size=7, gamma=0.9):
+Group: 15; Epoch: 35; Batch Size: 32; lr: 0.001; training loss: 0.2739832521677017; training acc: 0.9005833333333333; test loss: 0.04914128934542338; test acc: 0.8976;
+scheduler = lr_scheduler.CosineAnnealingLR(optimizer, T_max=35):
+Group: 16; Epoch: 35; Batch Size: 32; lr: 0.01; training loss: 0.053991275377726806; training acc: 0.9805833333333334; test loss: 0.04454270870325466; test acc: 0.9289;
+scheduler = lr_scheduler.StepLR(optimizer, step_size=30, gamma=0.9):
+Group: 17; Epoch: 35; Batch Size: 32; lr: 0.01; training loss: 0.04159314638581806; training acc: 0.98485; test loss: 0.06188681138620401; test acc: 0.9264;
+===========================================================================================================================================================
+Initialization
+Xavier uniform:
+Epoch: 35; Batch Size: 32; lr: 0.1; training loss: 0.05808492022995827; training acc: 0.9810166666666666; test loss: 0.059977304670059434; test acc: 0.9193;(High acc)
+Xavier normal
+Group: 18; Epoch: 35; Batch Size: 32; lr: 0.01; training loss: 0.04506969885327853; training acc: 0.98275; test loss: 0.05525925102699548; test acc: 0.9259;
+nn.init.kaiming_normal_(layer.weight)
+**Group: 19; Epoch: 35; Batch Size: 32; lr: 0.01; training loss: 0.027147324916141708; training acc: 0.9902; test loss: 0.05378716544531441; test acc: 0.9318;
+nn.init.kaiming_uniform_(layer.weight)
+Group: 20; Epoch: 35; Batch Size: 32; lr: 0.01; training loss: 0.02537969170285214; training acc: 0.9910166666666667; test loss: 0.05333668971750109; test acc: 0.9301;
+
+Initialization should be in front of epochs.
+Group: 21; Epoch: 35; Batch Size: 32; lr: 0.01; training loss: 0.03202187767176268; training acc: 0.9897333333333334; test loss: 0.042654249422236654; test acc: 0.9341;
+
+===========================================================================================================================================================
+Optimizer
+optim.Adam(net.parameters(), lr=lr):
+Group: 22; Epoch: 35; Batch Size: 32; lr: 0.01; training loss: 2.303911488342285; training acc: 0.09998333333333333; test loss: 0.38468030331929526; test acc: 0.1;

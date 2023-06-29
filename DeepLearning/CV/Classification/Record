@@ -1,0 +1,4 @@
+1. Mean and Std values of Dogs vs. Cats small dataset: mean = [0.49 0.45 0.41], std = [0.23 0.22 0.22]
+
+2. 对VGG16的二分类任务，创建DataLoader是shuffle选择True显著降低loss；vgg16 pretrained 显著降低loss； 不冻结loss下降不稳定，有回弹；除了最后一层全连接层以外全冻结，loss稳定下降
+

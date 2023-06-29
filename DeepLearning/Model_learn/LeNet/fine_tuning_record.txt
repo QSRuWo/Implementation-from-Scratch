@@ -1,0 +1,66 @@
+Network：LeNet
+Initialization: Every Conv2d and Linear layer, Xavier_uniform
+Loss function: CrossEntropy Loss
+Optimizer: SGD
+Data: FashionMNIST, Raw
+device: gpu
+lr_policy: None
+===========================================================================================================================================================
+Epoch Adjustment
+Epoch: 10; Batch Size: 64; lr: 0.9; training loss: 0.33300041164289407; training acc: 0.8760666666666667; test loss: 0.05869071250721844; test acc: 0.8699;
+Epoch: 15; Batch Size: 64; lr: 0.9; training loss: 0.2904221885271672; training acc: 0.8910333333333333; test loss: 0.05434745206221589; test acc: 0.8792;
+Epoch: 20; Batch Size: 64; lr: 0.9; training loss: 0.2526296431750758; training acc: 0.90425; test loss: 0.04905591283176245; test acc: 0.8926;
+Epoch: 25; Batch Size: 64; lr: 0.9; training loss: 0.2272687942258267; training acc: 0.9149; test loss: 0.04666204594059794; test acc: 0.8997;
+Epoch: 30; Batch Size: 64; lr: 0.9; training loss: 0.2149031904976823; training acc: 0.9196; test loss: 0.04698000904688957; test acc: 0.8981;
+**Group: 6; Epoch: 35; Batch Size: 64; lr: 0.9; training loss: 0.18424539784315044; training acc: 0.9311166666666667; test loss: 0.09712950838034723; test acc: 0.8961;
+# It seems that overfitting is becoming serious here.
+Epoch: 40; Batch Size: 64; lr: 0.9; training loss: 0.1834209307051226; training acc: 0.9303666666666667; test loss: 0.048077490704972095; test acc: 0.9004;
+Epoch: 45; Batch Size: 64; lr: 0.9; training loss: 0.1645650568841172; training acc: 0.9369166666666666; test loss: 0.0522221963384004; test acc: 0.896;
+===========================================================================================================================================================
+Batch Size Adjustment
+**Control Group: Epoch: 35; Batch Size: 64; lr: 0.9; training loss: 0.19333692385491405; training acc: 0.9283333333333333; test loss: 0.046132765622980305; test acc: 0.9017;
+Group: 9; Epoch: 35; Batch Size: 32; lr: 0.9; training loss: 0.1456986073670288; training acc: 0.9437666666666666; test loss: 0.048568096459905306; test acc: 0.9051; # More overfitting
+Group: 10; Epoch: 35; Batch Size: 128; lr: 0.9; training loss: 0.23048686669833623; training acc: 0.9131; test loss: 0.1946814500653286; test acc: 0.8935;
+===========================================================================================================================================================
+Lr Adjustment
+**Control Group: Group: 15; Epoch: 35; Batch Size: 64; lr: 0.9; training loss: 0.19908433139070011; training acc: 0.9241; test loss: 0.09286583562109516; test acc: 0.9011;
+Group: 11; Epoch: 35; Batch Size: 64; lr: 0.5; training loss: 0.22509155854948168; training acc: 0.9157833333333333; test loss: 0.09368518232775014; test acc: 0.898;
+Epoch: 35; Batch Size: 64; lr: 0.1; training loss: 0.34715629494520645; training acc: 0.8731333333333333; test loss: 0.12256758407489068; test acc: 0.8637;
+Add a lr_scheduler CosineAnnealingLR, Initial lr = 0.9, scheduler = lr_scheduler.CosineAnnealingLR(optimizer, T_max=35, verbose=True)
+Group: 13; Epoch: 35; Batch Size: 64; lr: 0.9; training loss: 0.20325371827175623; training acc: 0.9258166666666666; test loss: 0.08748028815777571; test acc: 0.9048;
+Add a StepLR, Initial lr = 0.9, scheduler = lr_scheduler.StepLR(optimizer, step_size=7, gamma=0.9, verbose=True)
+Group: 14; Epoch: 35; Batch Size: 64; lr: 0.9; training loss: 0.19457408513770555; training acc: 0.9270666666666667; test loss: 0.09836368625169434; test acc: 0.8959;
+===========================================================================================================================================================
+Initialization
+Control Group: (Xavier_uniform)Group: 10; Epoch: 35; Batch Size: 64; lr: 0.9; training loss: 0.20387312460110893; training acc: 0.9229666666666667; test loss: 0.0913865630354073; test acc: 0.9044;
+(Xavier_normal)Epoch: 35; Batch Size: 64; lr: 0.9; training loss: 0.19293625550721882; training acc: 0.9271833333333334; test loss: 0.09197530236794178; test acc: 0.9006;
+**(Kaiming_normal)Group: 15; Epoch: 35; Batch Size: 64; lr: 0.9; training loss: 0.19908433139070011; training acc: 0.9241; test loss: 0.09286583562109516; test acc: 0.9011;
+(Kaiming_uniform)Epoch: 35; Batch Size: 64; lr: 0.9; training loss: 0.18793003702325733; training acc: 0.9301; test loss: 0.09596889749018432; test acc: 0.8965;
+===========================================================================================================================================================
+Optimizer
+**Control Group: SGD (Kaiming_normal)Epoch: 35; Batch Size: 64; lr: 0.9; training loss: 0.18862663183623413; training acc: 0.92865; test loss: 0.09013604283181907; test acc: 0.9034;
+Adam (Kaiming_normal)Epoch: 35; Batch Size: 64; lr: 0.1; training loss: 2.4596268457136174; training acc: 0.09883333333333333; test loss: 0.8590890047138434; test acc: 0.1;
+===========================================================================================================================================================
+Other small change
+nn.Sigmoid() -> nn.ReLU():
+Epoch: 35; Batch Size: 64; lr: 0.1; training loss: 0.12146639012034609; training acc: 0.9527833333333333; test loss: 0.13137681377547256; test acc: 0.8963;
+Group: 16; Epoch: 35; Batch Size: 64; lr: 0.9; training loss: 2.3059512564876696; training acc: 0.09995; test loss: 0.7696269382037588; test acc: 0.1;
+More overfitting with no increase on test acc.
+Double channel number:
+Epoch: 35; Batch Size: 64; lr: 0.1; training loss: 0.328955809603622; training acc: 0.8791; test loss: 0.12429243184800849; test acc: 0.8617;
+gpu -> cpu:
+Epoch: 35; Batch Size: 64; lr: 0.9; training loss: 0.18493775011046226; training acc: 0.93005; test loss: 0.09886901529787827; test acc: 0.8963;
+===========================================================================================================================================================
+100 Epochs
+Epoch: 100; Batch Size: 64; lr: 0.9; training loss: 0.04461737929831948; training acc: 0.9838833333333333; test loss: 0.15253096758041715; test acc: 0.9045;
+
+Conclusion:
+The best group:
+SGD (Kaiming_normal)Epoch: 35; Batch Size: 64; lr: 0.9; training loss: 0.18862663183623413; training acc: 0.92865; test loss: 0.09013604283181907; test acc: 0.9034;
+GPU utilization rate is not high(<50%).
+Some surprising thing I found in this experiment:
+(1) Increasing model complexity by doubling number of channels of each layer lead to a lower test accuracy.
+(2) Substitute sigmoid with relu lead to a lower test accuracy.
+(3) If I use Adam, the model will not converge.
+
+Group: 17; Epoch: 35; Batch Size: 64; lr: 0.1; training loss: 0.11547648695422642; training acc: 0.9551166666666666; test loss: 0.13351741426392025; test acc: 0.894;

@@ -1,0 +1,70 @@
+Epoch 0 training loss: 0.834887160038948, training acc: 0.6874666666666667
+Test loss: 0.08378053261439006, test acc: 0.8059
+Epoch 1 training loss: 0.4500731435378392, training acc: 0.8345833333333333
+Test loss: 0.06462079504330953, test acc: 0.8618
+Epoch 2 training loss: 0.37364246176679927, training acc: 0.8631
+Test loss: 0.05757928429841995, test acc: 0.8738
+Epoch 3 training loss: 0.3336523445725441, training acc: 0.8783333333333333
+Test loss: 0.05383323301076889, test acc: 0.8819
+Epoch 4 training loss: 0.3059761400838693, training acc: 0.8880833333333333
+Test loss: 0.05040767792065938, test acc: 0.8891
+Epoch 5 training loss: 0.2842956711312135, training acc: 0.89535
+Test loss: 0.04833532654941082, test acc: 0.8948
+Epoch 6 training loss: 0.26707930176655453, training acc: 0.9017
+Test loss: 0.04618180866440137, test acc: 0.8972
+Epoch 7 training loss: 0.2510663936197758, training acc: 0.9073166666666667
+Test loss: 0.04450901150504748, test acc: 0.9049
+Epoch 8 training loss: 0.23704506741017103, training acc: 0.91135
+Test loss: 0.04513565483093262, test acc: 0.9037
+Epoch 9 training loss: 0.22285013489623864, training acc: 0.9172166666666667
+Test loss: 0.04180201081633568, test acc: 0.9112
+Epoch 10 training loss: 0.21372191537121932, training acc: 0.9206
+Test loss: 0.04225144188851118, test acc: 0.9081
+Epoch 11 training loss: 0.20166478812446198, training acc: 0.9252333333333334
+Test loss: 0.04183082819183667, test acc: 0.9078
+Epoch 12 training loss: 0.18951022199938694, training acc: 0.9292166666666667
+Test loss: 0.03898733097910881, test acc: 0.917
+Epoch 13 training loss: 0.18113707503626744, training acc: 0.9321666666666667
+Test loss: 0.03940765995879968, test acc: 0.9172
+Epoch 14 training loss: 0.1714904154787461, training acc: 0.9359333333333333
+Test loss: 0.03951439368575811, test acc: 0.9171
+Epoch 15 training loss: 0.1620577633406967, training acc: 0.9396833333333333
+Test loss: 0.038296691742539406, test acc: 0.9186
+Epoch 16 training loss: 0.15223961972941955, training acc: 0.9434333333333333
+Test loss: 0.037914171754320464, test acc: 0.922
+Epoch 17 training loss: 0.14182592577449976, training acc: 0.9473166666666667
+Test loss: 0.03785056877459089, test acc: 0.9208
+Epoch 18 training loss: 0.13143926980420947, training acc: 0.9509
+Test loss: 0.03972259361197551, test acc: 0.9213
+Epoch 19 training loss: 0.12406152107790112, training acc: 0.9533333333333334
+Test loss: 0.04127377810801069, test acc: 0.9203
+Epoch 20 training loss: 0.11702054347147545, training acc: 0.9563166666666667
+Test loss: 0.03948121184706688, test acc: 0.9235
+Epoch 21 training loss: 0.10693982256775102, training acc: 0.9608166666666667
+Test loss: 0.039422916184614104, test acc: 0.9277
+Epoch 22 training loss: 0.09909911357300977, training acc: 0.96345
+Test loss: 0.040019232133279244, test acc: 0.9259
+Epoch 23 training loss: 0.09313270251117646, training acc: 0.9653666666666667
+Test loss: 0.04093723056788246, test acc: 0.926
+Epoch 24 training loss: 0.08618075438899299, training acc: 0.9678833333333333
+Test loss: 0.04188184213886658, test acc: 0.927
+Epoch 25 training loss: 0.078841777280656, training acc: 0.9705166666666667
+Test loss: 0.04245225043098132, test acc: 0.9278
+Epoch 26 training loss: 0.0744706471070104, training acc: 0.9733333333333334
+Test loss: 0.04259274085139235, test acc: 0.928
+Epoch 27 training loss: 0.06817142324360709, training acc: 0.9753333333333334
+Test loss: 0.044162158278127514, test acc: 0.9268
+Epoch 28 training loss: 0.06517336251263817, training acc: 0.97685
+Test loss: 0.04380013259897629, test acc: 0.93
+Epoch 29 training loss: 0.06209019616876418, training acc: 0.9775
+Test loss: 0.043925239207098885, test acc: 0.9299
+Epoch 30 training loss: 0.05893817941906552, training acc: 0.9783666666666667
+Test loss: 0.04404386718037228, test acc: 0.9289
+Epoch 31 training loss: 0.05486896674452971, training acc: 0.98075
+Test loss: 0.04449671606024106, test acc: 0.9294
+Epoch 32 training loss: 0.055124571518196414, training acc: 0.98005
+Test loss: 0.04469044103634854, test acc: 0.9283
+Epoch 33 training loss: 0.0530136605886432, training acc: 0.9810833333333333
+Test loss: 0.04460690208002925, test acc: 0.9288
+Epoch 34 training loss: 0.053991275377726806, training acc: 0.9805833333333334
+Test loss: 0.04454270870325466, test acc: 0.9289

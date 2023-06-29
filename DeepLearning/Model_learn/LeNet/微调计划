@@ -1,0 +1,4 @@
+1. 把sigmoid改成relu
+2. 学习率调整
+3. batch size调整
+4. 调整通道数

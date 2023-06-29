@@ -1,0 +1,10 @@
+Epoch 0 training loss: 2.30853393351237, training acc: 0.09928333333333333
+Test loss: 0.3855976215362549, test acc: 0.1
+Epoch 1 training loss: 2.306349338912964, training acc: 0.09896666666666666
+Test loss: 0.3850404088338216, test acc: 0.1
+Epoch 2 training loss: 2.3062839639027914, training acc: 0.09898333333333334
+Test loss: 0.38491130816141766, test acc: 0.1
+Epoch 3 training loss: 2.3064933480580647, training acc: 0.09756666666666666
+Test loss: 0.3851288823445638, test acc: 0.1
+Epoch 4 training loss: 2.306180817159017, training acc: 0.09928333333333333
+Test loss: 0.3854864621480306, test acc: 0.1
